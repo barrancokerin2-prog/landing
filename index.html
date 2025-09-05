@@ -35,6 +35,10 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .service-description {
+            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            overflow: hidden;
+        }
     </style>
 </head>
 <body>
@@ -122,49 +126,47 @@
                     <h2 class="text-3xl font-bold text-[#4A4F2D]">Nuestros Servicios</h2>
                     <p class="mt-2">Planes diseñados para tus necesidades.</p>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                <div class="grid md:grid-cols-3 gap-8 items-start">
+                    <!-- Servicio 1 -->
+                    <div class="service-card bg-white p-8 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                         <h3 class="text-2xl font-semibold text-center text-[#A25B42] mb-4">Talleres para Empresas y Colegios</h3>
-                        <div class="mb-6 flex-grow space-y-4">
-                           <p class="font-semibold">Bienestar emocional, prevención y herramientas prácticas para la vida diaria.</p>
-                           <p>Diseñamos y facilitamos talleres psicoeducativos adaptados a las necesidades de cada grupo, combinando psicología, pedagogía y experiencia vivencial.</p>
-                           <p class="font-semibold">Promovemos temas como:</p>
-                           <ul class="list-disc list-inside text-left text-sm space-y-1">
-                               <li>Manejo del estrés y la ansiedad</li>
-                               <li>Comunicación asertiva y trabajo en equipo</li>
-                               <li>Inteligencia emocional</li>
-                           </ul>
-                           <p>Cada taller es diseñado a medida, con un enfoque participativo, inclusivo y basado en el respeto.</p>
+                        <div id="servicio-desc-1" class="service-description" style="max-height: 0px; opacity: 0;">
+                           <div class="mb-6 space-y-4 pt-4">
+                               <p class="font-semibold">Bienestar emocional, prevención y herramientas prácticas para la vida diaria.</p>
+                               <p>Diseñamos y facilitamos talleres psicoeducativos adaptados a las necesidades de cada grupo, combinando psicología, pedagogía y experiencia vivencial.</p>
+                               <button onclick="agendarServicio('Talleres para Empresas y Colegios')" class="bg-[#A25B42] text-white font-semibold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-colors duration-300 w-full mt-4">Agendar Taller</button>
+                           </div>
                         </div>
                         <div class="text-center mt-auto">
-                            <button class="bg-[#5C555A] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#4A4F2D] transition-colors duration-300">Más Información</button>
+                            <button onclick="toggleService('servicio-desc-1', this)" class="bg-[#5C555A] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#4A4F2D] transition-colors duration-300">Más Información</button>
                         </div>
                     </div>
-                    <div class="bg-[#4A4F2D] text-white p-8 rounded-xl shadow-2xl border transform hover:-translate-y-2 transition-transform duration-300 scale-105 flex flex-col">
+                    <!-- Servicio 2 -->
+                    <div class="service-card bg-[#4A4F2D] text-white p-8 rounded-xl shadow-2xl border transform hover:-translate-y-2 transition-transform duration-300 scale-105 flex flex-col">
                          <div class="text-center"><span class="bg-white text-[#4A4F2D] text-xs font-bold px-3 py-1 rounded-full uppercase mb-4 inline-block">Más Popular</span></div>
                         <h3 class="text-2xl font-semibold text-center mb-4">Acompañamiento al Aire Libre</h3>
-                        <div class="mb-6 flex-grow space-y-3">
-                            <p class="font-semibold">Una experiencia terapéutica diferente, en contacto con la naturaleza.</p>
-                            <p>Ofrecemos sesiones donde el movimiento, el paisaje y el aire libre se convierten en aliados del proceso terapéutico, fuera del formato tradicional.</p>
-                            <p>Caminamos juntos y conversamos desde una mirada integral y respetuosa, ideal para quienes necesitan salir de la rutina y reencontrarse con su bienestar.</p>
+                         <div id="servicio-desc-2" class="service-description" style="max-height: 0px; opacity: 0;">
+                            <div class="mb-6 space-y-3 pt-4">
+                                <p class="font-semibold">Una experiencia terapéutica diferente, en contacto con la naturaleza.</p>
+                                <p>Ofrecemos sesiones donde el movimiento, el paisaje y el aire libre se convierten en aliados del proceso terapéutico, fuera del formato tradicional.</p>
+                            </div>
                         </div>
                         <div class="text-center mt-auto">
-                            <button class="bg-white text-[#4A4F2D] font-semibold py-2 px-6 rounded-lg hover:bg-gray-200 transition-colors duration-300">Más Información</button>
+                            <button onclick="toggleService('servicio-desc-2', this)" class="bg-white text-[#4A4F2D] font-semibold py-2 px-6 rounded-lg hover:bg-gray-200 transition-colors duration-300">Más Información</button>
                         </div>
                     </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                    <!-- Servicio 3 -->
+                    <div class="service-card bg-white p-8 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                         <h3 class="text-2xl font-semibold text-center text-[#A25B42] mb-4">Producción de Contenido que Inspira</h3>
-                        <div class="mb-6 flex-grow space-y-4">
-                            <p class="font-semibold">Transforma tus ideas en mensajes que conectan.</p>
-                            <p>Te acompañamos en todo el proceso creativo: desde la creación del guion hasta la grabación con equipo profesional para que tu contenido sea auténtico y de alta calidad.</p>
-                            <p>Nuestra misión es ayudarte a desarrollar videos bien producidos que reflejen tu esencia y conecten genuinamente con tu audiencia.</p>
-                             <p class="text-center pt-2">
-                                Tú pones la voz y la pasión. <br>
-                                Nosotros te ayudamos a darle forma, brillo e impacto.
-                            </p>
+                        <div id="servicio-desc-3" class="service-description" style="max-height: 0px; opacity: 0;">
+                            <div class="mb-6 space-y-4 pt-4">
+                                <p class="font-semibold">Transforma tus ideas en mensajes que conectan.</p>
+                                <p>Te acompañamos en todo el proceso creativo, desde el guion hasta la grabación con equipo profesional para que tu contenido sea auténtico y de alta calidad.</p>
+                                <button onclick="agendarServicio('Producción de Contenido que Inspira')" class="bg-[#A25B42] text-white font-semibold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-colors duration-300 w-full mt-4">Agendar Servicio</button>
+                            </div>
                         </div>
                         <div class="text-center mt-auto">
-                            <button class="bg-[#5C555A] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#4A4F2D] transition-colors duration-300">Más Información</button>
+                            <button onclick="toggleService('servicio-desc-3', this)" class="bg-[#5C555A] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#4A4F2D] transition-colors duration-300">Más Información</button>
                         </div>
                     </div>
                 </div>
@@ -190,7 +192,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="text-xl font-semibold text-[#4A4F2D] mb-2">Malecón Puerto Colombia</h3>
                             <p class="mb-4 flex-grow">Conversaciones que fluyen con el sonido de las olas y la historia del muelle como telón de fondo.</p>
-                            <a href="https://wa.me/+573044142800" target="_blank" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</a>
+                            <button onclick="agendarLugar('Malecón Puerto Colombia')" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</button>
                         </div>
                     </div>
                     <!-- Castillo de Salgar -->
@@ -199,7 +201,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="text-xl font-semibold text-[#4A4F2D] mb-2">Castillo de Salgar</h3>
                             <p class="mb-4 flex-grow">Un encuentro terapéutico con la brisa del mar y una vista inspiradora desde un lugar histórico.</p>
-                            <a href="https://wa.me/+573044142800" target="_blank" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</a>
+                            <button onclick="agendarLugar('Castillo de Salgar')" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</button>
                         </div>
                     </div>
                     <!-- Boulevard Buenavista -->
@@ -208,7 +210,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="text-xl font-semibold text-[#4A4F2D] mb-2">Boulevard Buenavista</h3>
                             <p class="mb-4 flex-grow">Un espacio urbano y moderno para caminar y conversar, integrando el bienestar en tu rutina diaria.</p>
-                            <a href="https://wa.me/+573044142800" target="_blank" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</a>
+                            <button onclick="agendarLugar('Boulevard Buenavista')" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</button>
                         </div>
                     </div>
                     <!-- Malecón del Río -->
@@ -217,7 +219,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="text-xl font-semibold text-[#4A4F2D] mb-2">Malecón del Río</h3>
                             <p class="mb-4 flex-grow">Caminatas conscientes junto a la majestuosidad del río Magdalena, un lugar para ganar claridad.</p>
-                            <a href="https://wa.me/+573044142800" target="_blank" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</a>
+                            <button onclick="agendarLugar('Malecón del Río')" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</button>
                         </div>
                     </div>
                     <!-- Mirador Los Nogales -->
@@ -226,7 +228,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="text-xl font-semibold text-[#4A4F2D] mb-2">Mirador Los Nogales</h3>
                             <p class="mb-4 flex-grow">Una panorámica de la ciudad para ganar perspectiva y encontrar calma en la altura.</p>
-                            <a href="https://wa.me/+573044142800" target="_blank" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</a>
+                            <button onclick="agendarLugar('Mirador Los Nogales')" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</button>
                         </div>
                     </div>
                     <!-- Ecoparque Ciénaga Mallorquín -->
@@ -235,7 +237,7 @@
                         <div class="p-6 flex flex-col flex-grow">
                             <h3 class="text-xl font-semibold text-[#4A4F2D] mb-2">Ecoparque Ciénaga Mallorquín</h3>
                             <p class="mb-4 flex-grow">Sumérgete en la biodiversidad de los manglares, un entorno único para reconectar con la vida.</p>
-                            <a href="https://wa.me/+573044142800" target="_blank" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</a>
+                            <button onclick="agendarLugar('Ecoparque Ciénaga Mallorquín')" class="bg-[#A25B42] text-white font-semibold py-2 px-4 rounded-lg inline-block w-full text-center hover:bg-opacity-80 transition-colors duration-300 mt-auto">Agendar aquí</button>
                         </div>
                     </div>
                 </div>
@@ -275,7 +277,7 @@
                             <textarea id="comentario" name="comentario" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#A25B42] focus:border-[#A25B42]" placeholder="¿Qué te ha parecido el servicio?" required></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="bg-[#4A4F2D] text-white font-bold py-3 px-8 rounded-lg hover:bg-[#5C555A] transition-colors duration-300 w-full sm:w-auto">Enviar Comentario</button>
+                            <button type="submit" class="bg-[#4A4F2D] text-white font-bold py-3 px-8 rounded-lg hover:bg-[#5C555A] transition-colors duration-300 w-full sm-w-auto">Enviar Comentario</button>
                         </div>
                     </form>
                 </div>
@@ -288,13 +290,13 @@
         <div class="container mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center">
             <p class="text-center md:text-left text-sm">&copy; <span id="copyright-year"></span> Mosaico Emocional - Psicología y Bienestar. Todos los derechos reservados.</p>
             <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="https://www.tiktok.com/@mosaico.emocional?_t=ZS-8zPWuS8ge38&_r=1" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+                <a href="https://tiktok.com/@mosaicoemocional" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.03-4.83-.95-6.43-2.88-1.59-1.94-2.4-4.41-2.4-7.05 0-2.84 1.15-5.55 3.18-7.44 2.05-1.9 4.8-2.95 7.6-2.95 1.01 0 2.02.13 3.01.4v4.03c-1.12-.34-2.31-.35-3.46-.02-1.5.42-2.5 1.58-2.5 3.18 0 1.63 1.11 2.78 2.75 2.78 1.64 0 2.75-1.15 2.75-2.78 0-1.27-.6-2.31-1.62-2.83V.02z"/></svg>
                 </a>
-                <a href="https://www.instagram.com/mosaico.emocional?igsh=aDd0M3VwM2gwNzBm" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+                <a href="https://instagram.com/mosaicoemocional" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.012-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 2.525c.636-.247 1.363-.416 2.427-.465C9.795 2.013 10.148 2 12.315 2zm-1.161 4.883a.663.663 0 10-1.326 0 .663.663 0 001.326 0zm4.858 0a.663.663 0 10-1.326 0 .663.663 0 001.326 0zM12 8.25a3.75 3.75 0 100 7.5 3.75 3.75 0 000-7.5zM12 14a2 2 0 110-4 2 2 0 010 4z" clip-rule="evenodd"/></svg>
                 </a>
-                <a href="www.linkedin.com/in/angelo-david-jiménez-altamar-606852234" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
+                <a href="https://linkedin.com/company/mosaicoemocional" target="_blank" class="text-gray-300 hover:text-white transition-colors duration-300">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
             </div>
@@ -322,7 +324,43 @@
                 document.getElementById('mobile-menu').classList.add('hidden');
             }
         }
+        
+        function toggleService(descId, buttonElement) {
+            const descElement = document.getElementById(descId);
+            const isHidden = descElement.style.maxHeight === '0px';
 
+            if (isHidden) {
+                descElement.style.maxHeight = descElement.scrollHeight + 'px';
+                descElement.style.opacity = '1';
+                buttonElement.textContent = 'Menos Información';
+            } else {
+                descElement.style.maxHeight = '0px';
+                descElement.style.opacity = '0';
+                buttonElement.textContent = 'Más Información';
+            }
+        }
+
+        function agendarLugar(location) {
+            const phoneNumber = '573044142800';
+            const message = `Hola, estoy interesado/a en agendar una sesión de Acompañamiento al Aire Libre en: ${location}.`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function agendarServicio(serviceName) {
+            const phoneNumber = '573044142800';
+            let message = '';
+
+            if (serviceName === 'Talleres para Empresas y Colegios') {
+                message = 'Hola, me gustaría solicitar información sobre los Talleres Psicoeducativos para empresas y colegios. Estoy interesado/a en conocer más sobre precios, disponibilidad de fechas y los próximos pasos para coordinar un taller. Agradezco su tiempo y quedo a la espera de su respuesta.';
+            } else {
+                message = `Hola, estoy interesado/a en agendar el servicio de "${serviceName}".`;
+            }
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
         document.addEventListener('DOMContentLoaded', () => {
             // Activate the first tab on page load
             showTab('quienes-somos', document.querySelector('.nav-link[href="#quienes-somos"]'));
@@ -351,5 +389,4 @@
     </script>
 </body>
 </html>
-
 
